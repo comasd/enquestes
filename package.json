@@ -1,0 +1,23 @@
+{
+  "name": "enquestes",
+  "version": "1.0.0",
+  "description" : "Aplicació web per realitzar enquestes",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url" : "https://github.com/comasd/enquestes.git"
+  }
+  "dependencies": {
+	  "express": "4.12.4",
+		"socket.io": "1.3.5",
+		"jade": "*",
+		"mongoose": ">= 4.0.0"
+  },
+  "devDependencies": {
+    "mocha" : "2.2.5",
+    "supertest" : "1.0.1"
+  }
+}
