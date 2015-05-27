@@ -9,7 +9,7 @@
   "repository": {
     "type": "git",
     "url" : "https://github.com/comasd/enquestes.git"
-  }
+  },
   "dependencies": {
 	  "express": "4.12.4",
 		"socket.io": "1.3.5",

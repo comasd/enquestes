@@ -1,11 +1,15 @@
+// load the express package and create our app
 var express = require('express');
- 
-var app = express();
- 
-app.get('/', function (req, res) {
-  res.send('Hola UOC!');
+var app     = express();
+
+// set the port based on environment (more on environments later)
+var port    = 5000;
+
+// send our index.html file to the user for the home page
+app.get('/', function(req, res) {
+    res.sendFile(__dirname + '/index.html');
 });
- 
-app.listen(process.env.PORT || 5000);
- 
-module.exports = app;
+
+// start the server
+app.listen(5000);
+console.log('5000 is the magic port!');
