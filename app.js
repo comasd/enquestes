@@ -11,5 +11,5 @@ app.get('/', function(req, res) {
 });
 
 // start the server
-app.listen(5000);
-console.log('5000 is the magic port!');
+app.listen(80);
+console.log('80 is the magic port!');
