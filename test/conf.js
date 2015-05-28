@@ -1,6 +1,6 @@
 // conf.js
 exports.config = {
-  directConnect: true,
+  //directConnect: true,
   framework: 'jasmine2',
   onPrepare: function() {
     var jasmineReporters = require('jasmine-reporters');
@@ -11,7 +11,10 @@ exports.config = {
     }));
     },
   seleniumAddress: 'http://localhost:4444/wd/hub',
-  specs: ['spec.js']
+  specs: ['spec.js'],
+  capabilities: {
+    browserName: 'firefox'
+  }
 }
 /*require('jasmine-reporters');
         jasmine.getEnv().addReporter(
