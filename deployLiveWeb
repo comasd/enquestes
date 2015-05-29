@@ -6,6 +6,7 @@ ssh app@comas.me <<EOF
   cd ~/enquestes
   git pull origin
   npm install --production
-  forever restartall
+  forever stopall
+  forever start app.js
   exit
 EOF
