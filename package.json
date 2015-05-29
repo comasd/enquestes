@@ -18,6 +18,8 @@
   },
   "devDependencies": {
     "mocha" : "2.2.5",
-    "supertest" : "1.0.1"
+    "supertest" : "1.0.1",
+    "jasmine" : "*",
+    "jasmine-reporters" : "*"
   }
 }
