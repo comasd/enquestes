@@ -3,7 +3,7 @@ describe('Comprovar titol Enquestes UOC', function() {
     var message = element(by.css('.form-group'));
 
     beforeEach(function() {
-        browser.get('http://localhost:8080');
+        browser.get('http://comas.me:8080');
     });
 
       it('should have a title', function() {
