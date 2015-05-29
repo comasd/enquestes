@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Start web server
+
+echo "starting web server and app"
+
+forever stopall
+
+forever start app.js
