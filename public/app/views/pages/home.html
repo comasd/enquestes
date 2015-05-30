@@ -1,0 +1,13 @@
+<div class="jumbotron text-center">
+	<h1 id="benvingudaMessage">Benvinguts a la pàgina d'enquestes de la UOC!</h1>
+
+	<div ng-if="!main.loggedIn">
+		<p>Fes login per accedir a les enquestes.</p>
+		<a href="/login" class="btn btn-primary" id="botoLogin">Login</a>
+	</div>
+
+	<div ng-if="main.loggedIn">
+		<p>Accedeix per crear, votar o mirar enquestes.</p>
+		<a href="/users" class="btn btn-primary">Veure enquestes</a>
+	</div>
+</div>

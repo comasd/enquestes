@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<testsuites>
- <testsuite name="Comprovar titol Enquestes UOC" timestamp="2015-05-28T23:21:06" hostname="localhost" time="4.153" errors="0" tests="2" skipped="0" disabled="0" failures="0">
-  <testcase classname="Comprovar titol Enquestes UOC" name="should have a title" time="3.716">
-  </testcase>
-  <testcase classname="Comprovar titol Enquestes UOC" name="should show a welcome message" time="0.43">
-  </testcase>
- </testsuite>
-</testsuites>

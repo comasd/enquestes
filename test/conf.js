@@ -16,6 +16,3 @@ exports.config = {
     browserName: 'firefox'
   }*/
 }
-/*require('jasmine-reporters');
-        jasmine.getEnv().addReporter(
-            new jasmine.JUnitXmlReporter('e2e-reports/junit-report', true, true));*/

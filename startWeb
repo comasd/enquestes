@@ -6,4 +6,4 @@ echo "starting web server and app"
 
 forever stopall
 
-forever start app.js
+forever start server.js
