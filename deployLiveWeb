@@ -5,7 +5,7 @@ echo "Deploying app to live server"
 ssh app@comas.me <<EOF
   cd ~/enquestes
   git pull origin
-  npm install --production
+  npm install
   forever stopall
   forever start server.js
   exit
