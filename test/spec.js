@@ -8,6 +8,7 @@ describe('Comprovar enregistrament usuaris a la web', function() {
     var creaUsuariPassword = element(by.model('user.userData.password'));
     var confirmaLogin = element(by.id('confirmacioLogin'));
     var botoLogin = element(by.id('botoLogin'));
+    var botoCreaUsuariTest = element(by.id('botoCreaUsuariUOC'));
     var botoCreate = element(by.id('botoCrearUsuari'));
     var botoConfirmaLogin = element(by.id('botoConfirmaLogin'));
 
@@ -45,6 +46,7 @@ describe('Comprovar enregistrament usuaris a la web', function() {
 
       it('should be able to login as a user', function() {
         botoLogin.click();
+        botoCreaUsuariTest.click();
         usuariNom.sendKeys('UOC');
         usuariPassword.sendKeys('test');
         botoConfirmaLogin.click();
