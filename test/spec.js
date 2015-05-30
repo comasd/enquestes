@@ -3,9 +3,22 @@ describe('Comprovar enregistrament usuaris a la web', function() {
     var message = element(by.id('benvingudaMessage'));
     var usuariNom = element(by.model('login.loginData.username'));
     var usuariPassword = element(by.model('login.loginData.password'));
+    var creaUsuariNom = element(by.model('user.userData.name'));
+    var creaUsuariUsername = element(by.model('user.userData.username'));
+    var creaUsuariPassword = element(by.model('user.userData.password'));
     var confirmacioLogin = element(by.id('confirmacioLogin'));
     var botoLogin = element(by.id('botoLogin'));
+    var botoCreate = element(by.id('botoCrearUsuari'));
     var botoConfirmaLogin = element(by.id('botoConfirmaLogin'));
+
+    it('should be able to create a user', function() {
+        browser.get('http://localhost:8000/users/create');
+        creaUsuariNom.sendKeys("test");
+        creaUsuariUsername.sendKeys("test");
+        creaUsuariPassword.sendKeys("test");
+        botoCreate.click();
+    });
+
 
     beforeEach(function() {
         browser.get('http://localhost:8000');
