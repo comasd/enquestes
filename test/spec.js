@@ -46,8 +46,7 @@ describe('Comprovar enregistrament usuaris a la web', function() {
 
       it('should be able to login as a user', function() {
         botoLogin.click();
-        botoCreaUsuariTest.click();
-        usuariNom.sendKeys('UOC');
+        usuariNom.sendKeys('test');
         usuariPassword.sendKeys('test');
         botoConfirmaLogin.click();
         //expect(confirmaLogin.getText()).toEqual('Users NEW USER');
