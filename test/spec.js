@@ -45,10 +45,11 @@ describe('Comprovar enregistrament usuaris a la web', function() {
 
       it('should be able to login as a user', function() {
         botoLogin.click();
-        usuariNom.sendKeys("test");
-        usuariPassword.sendKeys("test");
+        usuariNom.sendKeys('UOC');
+        usuariPassword.sendKeys('test');
         botoConfirmaLogin.click();
         //expect(confirmaLogin.getText()).toEqual('Users NEW USER');
+        expect(browser.getCurrentUrl()).toBe('http://localhost:8000/users');
       });
 
 });
