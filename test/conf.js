@@ -11,7 +11,7 @@ exports.config = {
     }));
     },
   seleniumAddress: 'http://localhost:4444/wd/hub',
-  specs: ['spec_veure_crear_enquestes.js']
+  specs: ['spec.js','spec_veure_crear_enquestes.js']
   /*capabilities: {
     browserName: 'firefox'
   }*/

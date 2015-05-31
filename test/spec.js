@@ -24,7 +24,7 @@ describe('Comprovar enregistrament usuaris a la web', function() {
         browser.get('http://localhost:8000/login');
         usuariNom.sendKeys('UOC');
         botoCreaUsuariTest.click();
-        browser.manage().timeouts().implicitlyWait(25000);
+        browser.manage().timeouts().implicitlyWait(2500);
         expect(browser.getCurrentUrl()).toBe('http://localhost:8000/login');
       });
 
@@ -56,8 +56,7 @@ describe('Comprovar enregistrament usuaris a la web', function() {
         usuariNom.sendKeys('UOC');
         usuariPassword.sendKeys('test');
         botoConfirmaLogin.click();
-        //expect(confirmaLogin.getText()).toEqual('Users NEW USER');
-        expect(browser.getCurrentUrl()).toBe('http://localhost:8000/users');
+        expect(browser.getCurrentUrl()).toBe('http://localhost:8000/polls');
       });
 
 });
