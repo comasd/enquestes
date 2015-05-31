@@ -12,28 +12,41 @@ module.exports = function(app, express) {
 
 	// route to generate sample user
 	apiRouter.post('/sample', function(req, res) {
-
+        console.log('Dintre de post, abans de findOne ....');
 		// look for the user named UOC
-		User.findOne({ 'username': 'UOC' }, function(err, user) {
+		User.findOne({ 'username': 'UOC' },
+            function(err, user) {
 
-			// if there is no chris user, create one
-			if (!user) {
-				var sampleUser = new User();
+            console.log('Dintre de post, despres de findOne');
 
-				sampleUser.name = 'Usuari Test';
-				sampleUser.username = 'UOC';
-				sampleUser.password = 'test';
+                if (err) throw err;
 
-				sampleUser.save();
-			} else {
-				console.log(user);
+        			// if there is no UOC user, create one
+    			if (!user) {
+                    console.log('Dintre de post, dins de !user');
+    				var sampleUser = new User();
 
-				// if there is a chris, update his password
-				user.password = 'supersecret';
-				user.save();
-			}
+    				sampleUser.name = 'Usuari Test';
+    				sampleUser.username = 'UOC';
+    				sampleUser.password = 'test';
+
+    				sampleUser.save();
+
+    			} else {
+                    console.log('Dintre de post, dins de else despres de !user');
+                    console.log(user);
+
+    				// if there is a chris, update his password
+    				user.password = 'test';
+    				user.save();
+    			}
+                return;
+            console.log('Fora de if...');
 
 		});
+        console.log('Fora de find One');
+        res.send(200);
+        console.log('Fora de find One despres de res 200');
 
 	});
 

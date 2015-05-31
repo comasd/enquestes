@@ -8,11 +8,11 @@ describe('Comprovar enregistrament usuaris a la web', function() {
     var creaUsuariPassword = element(by.model('user.userData.password'));
     var confirmaLogin = element(by.id('confirmacioLogin'));
     var botoLogin = element(by.id('botoLogin'));
-    var botoCreaUsuariTest = element(by.id('botoCreaUsuariUOC'));
+    var botoCreaUsuariTest = element(by.css('[ng-click="login.createSample()"]'));
     var botoCreate = element(by.id('botoCrearUsuari'));
     var botoConfirmaLogin = element(by.id('botoConfirmaLogin'));
 
-    it('should be able to create a user', function() {
+    it('should be able to fill login form', function() {
         browser.get('http://localhost:8000/users/create');
         creaUsuariNom.sendKeys("test");
         creaUsuariUsername.sendKeys("test");
@@ -20,6 +20,13 @@ describe('Comprovar enregistrament usuaris a la web', function() {
         botoCreate.click();
     });
 
+    it('should be able to create UOC user', function() {
+        browser.get('http://localhost:8000/login');
+        usuariNom.sendKeys('UOC');
+        botoCreaUsuariTest.click();
+        browser.manage().timeouts().implicitlyWait(25000);
+        expect(browser.getCurrentUrl()).toBe('http://localhost:8000/login');
+      });
 
     beforeEach(function() {
         browser.get('http://localhost:8000');
@@ -44,9 +51,9 @@ describe('Comprovar enregistrament usuaris a la web', function() {
         expect(botoConfirmaLogin.isPresent()).toBe(true);
       });
 
-      it('should be able to login as a user', function() {
+      it('should be able to login as UOC user', function() {
         botoLogin.click();
-        usuariNom.sendKeys('test');
+        usuariNom.sendKeys('UOC');
         usuariPassword.sendKeys('test');
         botoConfirmaLogin.click();
         //expect(confirmaLogin.getText()).toEqual('Users NEW USER');
