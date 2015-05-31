@@ -1,13 +1,18 @@
 main 					{
-	padding-top:30px;	
+	padding-top:30px;
 }
 
-/* HEADER 
+/* HEADER
 ===================== */
-header .navbar 		{ 
+header .navbar 		{
 	border-radius:0;
 }
 
+
+.navbar-nav>li>a {
+  padding-top: 28px;
+  padding-bottom: 20.5px;
+}
 /* NGANIMATE
 ====================== */
 
@@ -37,6 +42,6 @@ header .navbar 		{
 }
 
 @-moz-keyframes spin {
-	from 	{ -moz-transform:rotate(0deg); }	
+	from 	{ -moz-transform:rotate(0deg); }
 	to 	{ -moz-transform:rotate(360deg); }
 }
