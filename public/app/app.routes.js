@@ -40,16 +40,13 @@ angular.module('app.routes', ['ngRoute'])
 
         //
         .when('/polls', { templateUrl: 'app/views/pages/partials/list.html',
-            controller: 'PollListCtrl',
-            controllerAs: 'poll'
+            controller: 'PollListCtrl'
         })
         .when('/poll/:pollId', { templateUrl: 'app/views/pages/partials/item.html',
-            controller: 'PollItemCtrl',
-            controllerAs: 'poll'
+            controller: 'PollItemCtrl'
         })
         .when('/new', { templateUrl: 'app/views/pages/partials/new.html',
-            controller: 'PollNewCtrl',
-            controllerAs: 'poll'
+            controller: 'PollNewCtrl'
         });
 
 

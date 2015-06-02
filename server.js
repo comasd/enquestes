@@ -9,6 +9,10 @@ var morgan     = require('morgan'); 		// used to see requests
 var mongoose   = require('mongoose');
 var config 	   = require('./config');
 var path 	   = require('path');
+var http       = require('http');
+var server     = http.createServer(app);
+var io         = require('socket.io').listen(server);
+
 
 // APP CONFIGURATION ==================
 // ====================================
@@ -41,6 +45,13 @@ app.use(express.static(__dirname + '/public'));
 var apiRoutes = require('./app/routes/api')(app, express);
 app.use('/api', apiRoutes);
 
+// MongoDB API Routes for POLLS
+var routes = require('./polls_app/routes');
+app.get('/polls_app/polls', routes.list);
+app.get('/polls_app/:id', routes.poll);
+app.post('/polls_app', routes.create);
+app.post('/vote', routes.vote);
+
 // MAIN CATCHALL ROUTE --------------- 
 // SEND USERS TO FRONTEND ------------
 // has to be registered after API ROUTES
@@ -50,5 +61,12 @@ app.get('*', function(req, res) {
 
 // START THE SERVER
 // ====================================
-app.listen(config.port);
-console.log('Magic happens on port ' + config.port);
+//app.listen(config.port);
+
+io.sockets.on('connection', routes.vote);
+
+server.listen(config.port, function(){
+	console.log('Express server listening on port ' + config.port);
+});
+
+//console.log('Magic happens on port ' + config.port);

@@ -4,7 +4,10 @@ angular.module('userApp', [
     'authService',
     'mainCtrl',
     'userCtrl',
-    'userService'])
+    'userService',
+    'pollController',
+	'pollService'
+])
 
 // application configuration to integrate token into requests
 .config(function($httpProvider) {

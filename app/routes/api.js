@@ -1,5 +1,6 @@
 var bodyParser = require('body-parser'); 	// get body-parser
 var User       = require('../models/user');
+var Poll       = require('../models/poll');
 var jwt        = require('jsonwebtoken');
 var config     = require('../../config');
 

@@ -2,6 +2,7 @@ angular.module('mainCtrl', [])
 
 .controller('mainController', function($rootScope, $location, Auth) {
 
+
 	var vm = this;
 
 	// get info if a person is logged in
@@ -16,6 +17,12 @@ angular.module('mainCtrl', [])
 			.then(function(data) {
 				vm.user = data.data;
 			});
+
+		if(!vm.loggedIn && $location.path() != '/' && $location.path() != '/login')
+		{
+			$location.path('/login');
+		}
+		
 	});
 
 	// function to handle login form
