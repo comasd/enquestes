@@ -12,21 +12,6 @@ describe('Comprovar enregistrament usuaris a la web', function() {
     var botoCreate = element(by.id('botoCrearUsuari'));
     var botoConfirmaLogin = element(by.id('botoConfirmaLogin'));
 
-    it('should be able to fill login form', function() {
-        browser.get('http://localhost:8000/users/create');
-        creaUsuariNom.sendKeys("test");
-        creaUsuariUsername.sendKeys("test");
-        creaUsuariPassword.sendKeys("test");
-        botoCreate.click();
-    });
-
-    it('should be able to create UOC user', function() {
-        browser.get('http://localhost:8000/login');
-        usuariNom.sendKeys('UOC');
-        botoCreaUsuariTest.click();
-        browser.manage().timeouts().implicitlyWait(2500);
-        expect(browser.getCurrentUrl()).toBe('http://localhost:8000/login');
-      });
 
     beforeEach(function() {
         browser.get('http://localhost:8000');
@@ -51,12 +36,28 @@ describe('Comprovar enregistrament usuaris a la web', function() {
         expect(botoConfirmaLogin.isPresent()).toBe(true);
       });
 
+      it('should be able to create UOC user', function() {
+        browser.get('http://localhost:8000/login');
+        usuariNom.sendKeys('UOC');
+        botoCreaUsuariTest.click();
+        browser.manage().timeouts().implicitlyWait(2500);
+        expect(browser.getCurrentUrl()).toBe('http://localhost:8000/login');
+      });
+
       it('should be able to login as UOC user', function() {
         botoLogin.click();
         usuariNom.sendKeys('UOC');
         usuariPassword.sendKeys('test');
         botoConfirmaLogin.click();
         expect(browser.getCurrentUrl()).toBe('http://localhost:8000/polls');
+      });
+
+      it('should be able to fill login form', function() {
+        browser.get('http://localhost:8000/users/create');
+        creaUsuariNom.sendKeys("test");
+        creaUsuariUsername.sendKeys("test");
+        creaUsuariPassword.sendKeys("test");
+        botoCreate.click();
       });
 
 });
