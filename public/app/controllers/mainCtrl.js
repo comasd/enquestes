@@ -22,7 +22,7 @@ angular.module('mainCtrl', [])
 		{
 			$location.path('/login');
 		}
-		
+
 	});
 
 	// function to handle login form
@@ -50,7 +50,7 @@ angular.module('mainCtrl', [])
 		Auth.logout();
 		vm.user = '';
 
-		$location.path('/login');
+		$location.path('/');
 	};
 
 	vm.createSample = function() {
