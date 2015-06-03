@@ -50,7 +50,12 @@ angular.module('mainCtrl', [])
 		Auth.logout();
 		vm.user = '';
 
-		$location.path('/');
+		if ($location.path() != '/'){
+			$location.path('/');
+		}
+		else {
+			$route.reload();
+		}
 	};
 
 	vm.createSample = function() {
