@@ -10,13 +10,13 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col-xs-12"><hr></div>
+	<div class="col-xs-6"><hr></div>
 </div>
 <div class="row" ng-switch on="polls.length">
 	<ul ng-switch-when="0">
 		<li><em>No hi ha enquestes. Voldries <a href="/new">crear una nova</a>?</li>
 	</ul>
-	<ul ng-switch-default>
+	<ul class="preguntes" ng-switch-default>
 		<li ng-repeat="poll in polls | filter:query">
 			<a href="/poll/{{poll._id}}">{{poll.question}}</a>
 		</li>

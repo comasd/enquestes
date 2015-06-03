@@ -6,8 +6,12 @@ main 					{
 ===================== */
 header .navbar 		{
 	border-radius:0;
+    background-color: #D2D0D0;
 }
 
+.navbar-toggle .icon-bar {
+    background-color: black;
+}
 
 .navbar-nav>li>a {
   padding-top: 28px;
@@ -22,6 +26,11 @@ header .navbar 		{
 	-moz-animation:zoomIn 0.3s both ease;
 	animation:zoomIn 0.3s both ease;
 }
+
+.page-header {
+    margin: 0px 0 20px;
+}
+
 
 /* ANIMATIONS
 ====================== */
@@ -48,6 +57,11 @@ header .navbar 		{
 
 /* POLLS
 ====================== */
+.preguntes {
+    font-size: 120%;
+}
+
+
 .result-table {
   margin: 20px 0;
   width: 100%;
