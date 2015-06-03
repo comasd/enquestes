@@ -18,7 +18,7 @@ angular.module('mainCtrl', [])
 				vm.user = data.data;
 			});
 
-		if(!vm.loggedIn && $location.path() != '/' && $location.path() != '/login')
+		if(!vm.loggedIn && $location.path() != '/' && $location.path() != '/login' && $location.path() != '/users/create')
 		{
 			$location.path('/login');
 		}
