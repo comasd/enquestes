@@ -1,9 +1,9 @@
 <div class="page-header">
 	<h1 id="confirmacioLogin">
-		Users
+		Usuaris
 		<a href="/users/create" class="btn btn-default">
 			<span class="glyphicon glyphicon-plus"></span>
-			New User
+			Nou usuari
 		</a>
 	</h1>
 
@@ -11,15 +11,15 @@
 
 <div class="jumbotron text-center" ng-show="user.processing">
 	<span class="glyphicon glyphicon-repeat spinner"></span>
-	<p>Loading Users...</p>
+	<p>Carregant usuaris...</p>
 </div>
 
 <table class="table table-bordered table-striped" ng-show="user.users">
 	<thead>
 		<tr>
 			<th>_id</th>
-			<th>Name</th>
-			<th>Username</th>
+			<th>Nom</th>
+			<th>Nom d'usuari</th>
 			<th class="col-sm-2"></th>
 		</tr>
 	</thead>
@@ -29,8 +29,8 @@
 			<td>{{ person.name }}</td>
 			<td>{{ person.username }}</td>
 			<td class="col-sm-2">
-				<a ng-href="/users/{{ person._id }}" class="btn btn-danger">Edit</a>
-				<a href="#" ng-click="user.deleteUser(person._id)" class="btn btn-primary">Delete</a>
+				<a ng-href="/users/{{ person._id }}" class="btn btn-danger">Editar</a>
+				<a href="#" ng-click="user.deleteUser(person._id)" class="btn btn-primary">Esborrar</a>
 			</td>
 		</tr>
 	</tbody>
