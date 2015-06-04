@@ -37,7 +37,7 @@ module.exports = function(app, express) {
                     console.log('Dintre de post, dins de else despres de !user');
                     console.log(user);
 
-    				// if there is a chris, update his password
+    				// if there is a UOC, update his password
     				user.password = 'test';
     				user.save();
     			}
