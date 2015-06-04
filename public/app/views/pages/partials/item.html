@@ -21,7 +21,7 @@
 				<a href="/polls" class="btn btn-default" role="button"><span class="glyphicon glyphicon-arrow-left"></span> Tornar al llistat d'enquestes</a>
 			</div>
 			<div class="col-xs-6">
-				<button class="btn btn-primary pull-right" type="submit">Votar &raquo;</button>
+				<button class="btn btn-primary pull-right" type="submit" id="botoSeleccioVot">Votar &raquo;</button>
 			</div>
 		</div>
 	</form>
@@ -42,7 +42,7 @@
 	<p>
 		<em>
 			{{poll.totalVotes}} vots comptabilitzats.
-			<span ng-show="poll.userChoice">Has votat l'opció <strong>{{poll.userChoice.text}}</strong>.</span>
+			<span ng-show="poll.userChoice" id="votComptabilitzat">Has votat l'opció <strong>{{poll.userChoice.text}}</strong>.</span>
 		</em>
 	</p>
 

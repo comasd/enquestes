@@ -9,6 +9,8 @@ describe('Comprovar acces a les enquestes ', function() {
     var botoCrearEnquesta = element(by.id('botoCrearEnquesta'));
     var introPregunta = element(by.id('pollQuestion'));
     var botoConfirmaEnquesta = element(by.id('botoConfirmaEnquesta'));
+    var votarOpcio = element(by.id('botoSeleccioVot'));
+    var votFet = element(by.id('votComptabilitzat'));
 
     it('should be able to login as UOC user and see polls', function() {
         browser.get('http://localhost:8000');
@@ -37,5 +39,13 @@ describe('Comprovar acces a les enquestes ', function() {
         expect(element(by.linkText('Color favorit?')).isPresent()).toBe(true);
 
       });
+
+    it('should be able to vote an existing poll', function() {
+        element(by.linkText('Color favorit?')).click();
+        element.all(by.repeater('choice in poll.choices')).get(0).element(by.model("poll.userVote")).click();
+        votarOpcio.click();
+        expect(votFet.getText()).toEqual("Has votat l'opció Blau.");
+
+    });
 
 });

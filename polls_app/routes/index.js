@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var db;
 if (process.env.VCAP_SERVICES) {
    var env = JSON.parse(process.env.VCAP_SERVICES);
-   db = mongoose.createConnection(env['mongodb-2.2'][0].credentials.url);
+   db = mongoose.createConnection(env['mongodb-3.0.3'][0].credentials.url);
 } else {
    db = mongoose.createConnection('localhost', 'pollsapp');
 }
@@ -36,7 +36,7 @@ exports.poll = function(req, res) {
 	ip = (ip ? ip : 'void') + req.ip;
 	console.log("Poll ip = " + ip);
 
-	
+
 	// Find the poll by its ID, use lean as we won't be changing it
 	Poll.findById(pollId, '', { lean: true }, function(err, poll) {
 		if(poll) {
@@ -47,7 +47,7 @@ exports.poll = function(req, res) {
 			// Loop through poll choices to determine if user has voted
 			// on this poll, and if so, what they selected
 			for(c in poll.choices) {
-				var choice = poll.choices[c]; 
+				var choice = poll.choices[c];
 
 				for(v in choice.votes) {
 					var vote = choice.votes[v];
@@ -65,7 +65,7 @@ exports.poll = function(req, res) {
 			poll.userChoice = userChoice;
 
 			poll.totalVotes = totalVotes;
-		
+
 			res.json(poll);
 		} else {
 			res.json({error:true});
@@ -80,17 +80,17 @@ exports.create = function(req, res) {
 			choices = reqBody.choices.filter(function(v) { return v.text != ''; }),
 			// Build up poll object to save
 			pollObj = {question: reqBody.question, choices: choices};
-				
+
 	// Create poll model from built up poll object
 	var poll = new Poll(pollObj);
-	
+
 	// Save poll to DB
 	poll.save(function(err, doc) {
 		if(err || !doc) {
 			throw 'Error';
 		} else {
 			res.json(doc);
-		}		
+		}
 	});
 };
 
@@ -101,17 +101,17 @@ exports.vote = function(socket) {
 		Poll.findById(data.poll_id, function(err, poll) {
 			var choice = poll.choices.id(data.choice);
 			choice.votes.push({ ip: ip });
-			
+
 			poll.save(function(err, doc) {
-				var theDoc = { 
-					question: doc.question, _id: doc._id, choices: doc.choices, 
-					userVoted: false, totalVotes: 0 
+				var theDoc = {
+					question: doc.question, _id: doc._id, choices: doc.choices,
+					userVoted: false, totalVotes: 0
 				};
 
 				// Loop through poll choices to determine if user has voted
 				// on this poll, and if so, what they selected
 				for(var i = 0, ln = doc.choices.length; i < ln; i++) {
-					var choice = doc.choices[i]; 
+					var choice = doc.choices[i];
 
 					for(var j = 0, jLn = choice.votes.length; j < jLn; j++) {
 						var vote = choice.votes[j];
@@ -124,10 +124,10 @@ exports.vote = function(socket) {
 						}
 					}
 				}
-				
+
 				socket.emit('myvote', theDoc);
 				socket.broadcast.emit('vote', theDoc);
-			});			
+			});
 		});
 	});
 };
