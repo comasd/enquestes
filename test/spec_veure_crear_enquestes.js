@@ -13,7 +13,7 @@ describe('Comprovar acces a les enquestes ', function() {
     var votFet = element(by.id('votComptabilitzat'));
 
     it('should be able to login as UOC user and see polls', function() {
-        browser.get('http://localhost:8000');
+        browser.get('http://localhost:8080');
         botoLogin.isPresent().then(function(result){
             if (result) {
                 botoLogin.click();
@@ -24,7 +24,7 @@ describe('Comprovar acces a les enquestes ', function() {
                 botoVeureEnquestes.click();
             }
         });
-        expect(browser.getCurrentUrl()).toBe('http://localhost:8000/polls');
+        expect(browser.getCurrentUrl()).toBe('http://localhost:8080/polls');
       });
 
     it('should be able to create a poll', function() {
@@ -35,7 +35,7 @@ describe('Comprovar acces a les enquestes ', function() {
         element.all(by.repeater('choice in poll.choices')).get(2).element(by.model("choice.text")).sendKeys('Blanc');
         browser.manage().timeouts().implicitlyWait(250);
         botoConfirmaEnquesta.click();
-        expect(browser.getCurrentUrl()).toBe('http://localhost:8000/polls');
+        expect(browser.getCurrentUrl()).toBe('http://localhost:8080/polls');
         expect(element(by.linkText('Color favorit?')).isPresent()).toBe(true);
 
       });

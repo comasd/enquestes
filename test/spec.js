@@ -14,7 +14,7 @@ describe('Comprovar enregistrament usuaris a la web', function() {
 
 
     beforeEach(function() {
-        browser.get('http://localhost:8000');
+        browser.get('http://localhost:8080');
     });
 
       it('should have a title', function() {
@@ -37,11 +37,11 @@ describe('Comprovar enregistrament usuaris a la web', function() {
       });
 
       it('should be able to create UOC user', function() {
-        browser.get('http://localhost:8000/login');
+        browser.get('http://localhost:8080/login');
         usuariNom.sendKeys('UOC');
         botoCreaUsuariTest.click();
         browser.manage().timeouts().implicitlyWait(2500);
-        expect(browser.getCurrentUrl()).toBe('http://localhost:8000/login');
+        expect(browser.getCurrentUrl()).toBe('http://localhost:8080/login');
       });
 
       it('should be able to login as UOC user', function() {
@@ -49,11 +49,11 @@ describe('Comprovar enregistrament usuaris a la web', function() {
         usuariNom.sendKeys('UOC');
         usuariPassword.sendKeys('test');
         botoConfirmaLogin.click();
-        expect(browser.getCurrentUrl()).toBe('http://localhost:8000/polls');
+        expect(browser.getCurrentUrl()).toBe('http://localhost:8080/polls');
       });
 
       it('should be able to fill login form', function() {
-        browser.get('http://localhost:8000/users/create');
+        browser.get('http://localhost:8080/users/create');
         creaUsuariNom.sendKeys("test");
         creaUsuariUsername.sendKeys("test");
         creaUsuariPassword.sendKeys("test");
