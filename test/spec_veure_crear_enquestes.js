@@ -11,6 +11,7 @@ describe('Comprovar acces a les enquestes ', function() {
     var botoConfirmaEnquesta = element(by.id('botoConfirmaEnquesta'));
     var votarOpcio = element(by.id('botoSeleccioVot'));
     var votFet = element(by.id('votComptabilitzat'));
+    var numVots = element(by.id('numVots'));
 
     it('should be able to login as UOC user and see polls', function() {
         browser.get('http://localhost:8080');
@@ -46,6 +47,10 @@ describe('Comprovar acces a les enquestes ', function() {
         votarOpcio.click();
         expect(votFet.getText()).toEqual("Has votat l'opció Blau.");
 
+    });
+
+    it('should be able to count votes on existing poll', function() {
+        expect(numVots.getText()).toEqual("1");
     });
 
 });
